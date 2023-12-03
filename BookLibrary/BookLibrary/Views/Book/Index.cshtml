@@ -1,0 +1,99 @@
+﻿@model IEnumerable<BookLibrary.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Godwin Library</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+    
+@foreach (var item in Model) {
+        
+    <div style="display: inline-grid; flex-direction: row; margin: 20px; align-items:center; text-align: center">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt=" ">
+              <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+                <p class="list-group-item">@Html.DisplayFor(modelItem => item.Author)</p>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Description)</li>
+                    <li>
+                        <div class="d-flex justify-content-center small text-warning mb-2">
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.Genre.Name)</li>
+                </ul>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+      @*   <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LibraryAddDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesInLibrary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesOutLibrary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableCopies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedAt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+ *@}
+ 
